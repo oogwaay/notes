@@ -11,8 +11,28 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
-# Header 1
-## Header 2
+# Two Sum
+'vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> hm;
+        vector<int> res;
+        
+        for(int i =0; i < nums.size(); i++){
+            if(hm.find(target - nums[i]) != hm.end()){
+                res.push_back(hm[target-nums[i]]);
+                res.push_back(i);
+                break;
+            }
+            if(hm.find(nums[i]) == hm.end()){
+                hm.insert(make_pair(nums[i], i));
+            }
+        }
+        
+        return res;
+}'
+## Algorithm
+          - Create a Hashmap (value vs index) off all the values from vector.
+          - iterate over the vector and find target - value in the Hashmap
+          - if found, return the two values. 
 ### Header 3
 
 - Bulleted
